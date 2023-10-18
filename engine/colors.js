@@ -1,3 +1,5 @@
+const NO_FILL = undefined;
+
 var colours = {
     "aliceblue":"#f0f8ff",
     "antiquewhite":"#faebd7",
@@ -136,3 +138,24 @@ var colours = {
     "yellow":"#ffff00",
     "yellowgreen":"#9acd32"
 };
+
+function open3d_colorToHex(color) {
+    if(typeof(color) == "number") {
+        return color.toString();
+    }
+
+    if(color.split("")[0] == "#") {
+        return (color.replace("#", ""));
+    }
+
+    return colours[colour.toLowerCase()].replace("#", "");
+}
+
+function open3d_modifyColor(hex, change) {
+    let n = parseInt(color, 16);
+    let r =  (n >> 16) + change;
+    let g = ((n >> 8) & 0x00FF) + change;
+    let b = (n & 0x0000FF) + change;
+
+    return (g | (b << 8) | (r << 16)).toString(16);
+}

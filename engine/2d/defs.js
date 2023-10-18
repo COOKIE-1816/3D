@@ -1,0 +1,3 @@
+const SHAPE_RECTANGLE = 0;
+const SHAPE_SQUARE = 1;
+const SHAPE_ROUND = 2;
